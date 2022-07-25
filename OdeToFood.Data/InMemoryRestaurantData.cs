@@ -29,6 +29,11 @@ namespace OdeToFood.Data
             }
         };
 
+        public int Commit()
+        {
+            return 0;
+        }
+
         public Restaurant GetById(int id)
         {
             // id validation checks - zero trust
@@ -48,6 +53,25 @@ namespace OdeToFood.Data
             {
                 return _restaurants.FindAll(x => x.Name.StartsWith(name)).OrderBy(x => x.Name);
             }
+        }
+
+        public Restaurant Update(Restaurant updateRestaurant)
+        {
+            var restaurant = _restaurants.SingleOrDefault(r => r.Id == updateRestaurant.Id);
+            if (restaurant != null)
+            {
+                restaurant.Name = updateRestaurant.Name;
+                restaurant.Location = updateRestaurant.Location;
+                restaurant.Cuisine = updateRestaurant.Cuisine;
+            }
+            return restaurant;
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            _restaurants.Add(newRestaurant);
+            newRestaurant.Id = _restaurants.Max(r => r.Id) + 1;
+            return newRestaurant;   
         }
     }
 }
