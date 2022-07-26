@@ -73,5 +73,15 @@ namespace OdeToFood.Data
             newRestaurant.Id = _restaurants.Max(r => r.Id) + 1;
             return newRestaurant;   
         }
+
+        public Restaurant Delete(int id)
+        {
+            var restaurant = _restaurants.FirstOrDefault(c => c.Id == id);
+            if (restaurant != null)
+            {
+                _restaurants.Remove(restaurant);
+            }
+            return restaurant;
+        }
     }
 }
