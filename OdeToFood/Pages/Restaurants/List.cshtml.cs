@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Data;
-using OldeToFood.Core;
+using OdeToFood.Core;
 
 namespace OdeToFood.Pages.Restaurants
 {
@@ -17,8 +17,8 @@ namespace OdeToFood.Pages.Restaurants
         public ListModel(IConfiguration config, 
                          IRestaurantData restaurantData)
         {
-            this.config = config;
-            _restaurantData = restaurantData;
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
+            _restaurantData = restaurantData ?? throw new ArgumentNullException(nameof(restaurantData));
         }
 
         public IEnumerable<Restaurant> Restaurants { get; set; }

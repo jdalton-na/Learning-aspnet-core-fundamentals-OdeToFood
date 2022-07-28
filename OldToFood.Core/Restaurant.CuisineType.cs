@@ -1,4 +1,4 @@
-﻿namespace OldeToFood.Core
+﻿namespace OdeToFood.Core
 {
     public partial class Restaurant
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Data;
-using OldeToFood.Core;
+using OdeToFood.Core;
 
 namespace OdeToFood.Pages.Restaurants
 {
@@ -15,7 +15,7 @@ namespace OdeToFood.Pages.Restaurants
 
         public DetailModel(IRestaurantData restaurantData)
         {
-            _restaurantData = restaurantData;
+            _restaurantData = restaurantData ?? throw new ArgumentNullException(nameof(restaurantData));
         }
 
         public IActionResult OnGet(int restaurantId)

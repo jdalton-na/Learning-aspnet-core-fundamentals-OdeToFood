@@ -1,4 +1,4 @@
-﻿using OldeToFood.Core;
+﻿using OdeToFood.Core;
 
 namespace OdeToFood.Data
 {
@@ -82,6 +82,11 @@ namespace OdeToFood.Data
                 _restaurants.Remove(restaurant);
             }
             return restaurant;
+        }
+
+        public int GetCountOfRestaurants()
+        {
+            return _restaurants.Count();
         }
     }
 }

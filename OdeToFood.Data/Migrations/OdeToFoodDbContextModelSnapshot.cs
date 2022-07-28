@@ -21,7 +21,7 @@ namespace OdeToFood.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("OldeToFood.Core.Restaurant", b =>
+            modelBuilder.Entity("OdeToFood.Core.Restaurant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

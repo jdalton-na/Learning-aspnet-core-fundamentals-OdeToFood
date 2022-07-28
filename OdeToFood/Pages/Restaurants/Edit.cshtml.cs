@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OdeToFood.Data;
-using OldeToFood.Core;
-using static OldeToFood.Core.Restaurant;
+using OdeToFood.Core;
+using static OdeToFood.Core.Restaurant;
 
 namespace OdeToFood.Pages.Restaurants
 {
@@ -18,8 +18,8 @@ namespace OdeToFood.Pages.Restaurants
 
         public EditModel(IRestaurantData restaurantData, IHtmlHelper htmlHelper)
         {
-            this.restaurantData = restaurantData;
-            this.htmlHelper = htmlHelper;
+            this.restaurantData = restaurantData ?? throw new ArgumentNullException(nameof(restaurantData));
+            this.htmlHelper = htmlHelper ?? throw new ArgumentNullException(nameof(htmlHelper));
         }
 
         public IActionResult OnGet(int? restaurantId)

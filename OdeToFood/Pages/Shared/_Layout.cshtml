@@ -42,7 +42,10 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <vc:restaurant-count></vc:restaurant-count>
+            <hr />
+            &copy; 2022 - ASP.Net Core Fundamentals By Scott Allen- <a asp-area="" asp-page="/Privacy">Privacy</a>
+            @RenderSection("footer", required: false)        
         </div>
     </footer>
 

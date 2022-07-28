@@ -1,4 +1,4 @@
-﻿using OldeToFood.Core;
+﻿using OdeToFood.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,8 @@ namespace OdeToFood.Data
         Restaurant Update(Restaurant updateRestaurant);
         Restaurant Delete(int id);
         Restaurant GetById(int id);
+
+        int GetCountOfRestaurants();
 
         int Commit();
     }

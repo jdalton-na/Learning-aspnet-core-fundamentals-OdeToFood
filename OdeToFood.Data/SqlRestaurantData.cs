@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OldeToFood.Core;
+using OdeToFood.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +43,11 @@ namespace OdeToFood.Data
         public Restaurant GetById(int id)
         {
             return dbContext.Restaurants.FirstOrDefault(c => c.Id == id);
+        }
+
+        public int GetCountOfRestaurants()
+        {
+            return dbContext.Restaurants.Count();
         }
 
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
