@@ -17,6 +17,12 @@ namespace OdeToFood.Api
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        [HttpGet("cuisines")]
+        public async Task<ActionResult<IEnumerable<string>>> GetCuisineNamesAsync()
+        {
+            return Ok(Enum.GetNames<Restaurant.CuisineType>().ToList());
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Restaurant>>> GetRetaurantsAsync()
         {

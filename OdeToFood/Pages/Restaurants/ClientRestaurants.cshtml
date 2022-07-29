@@ -16,21 +16,35 @@
 
     <script>
 
+        var cuisines;
+
         $(function() {
-            $.ajax("/api/restaurants/",
+
+            $.ajax("/api/restaurants/cuisines/",
                     { method: "get" })
                 .then(function(response) {
-                    $("#restaurants").dataTable(
-                        {
-                            data: response,
-                            columns: [
-                                { "data": "name"},
-                                { "data": "location"},
-                                { "data": "cuisine"}
-                            ]
-                        }
-                    );
-                });
-        });
+                    cuisines = response;
+                })
+
+            $.ajax("/api/restaurants/",
+                { method: "get" })
+            .then(function(response) {
+                $("#restaurants").dataTable(
+                    {
+                        data: response,
+                        columns: [
+                            { "data": "name" },
+                            { "data": "location" },
+                            {
+                                "data": "cuisine",
+                                "render": function(data) {
+                                    return cuisines[data];
+                                }
+                            }
+                        ]
+                    }
+                );
+            });
+    });
     </script>
 }
